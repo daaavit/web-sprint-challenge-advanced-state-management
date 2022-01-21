@@ -1,8 +1,49 @@
+import { ACTION_TYPES } from "../actions/index";
+
 
 export const initialState = {
+    smurfs: [{
+        id: null,
+        firstName: "",
+        nickname: "",
+        position: "",
+        description: ""
+    }],
+    isLoading: false,
+    error: "Wrong Smurfs Loading"
 }
 
-const reducer = ()=>{
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case (ACTION_TYPES.FETCH_SMURFS_START):
+            return ({ ...state, isLoading: true })
+
+        case (ACTION_TYPES.FETCH_SMURFS_SUCCESS):
+            return ({
+                ...state,
+                smurfs: action.payload,
+                isLoading: false
+            })
+
+        case (ACTION_TYPES.FETCH_SMURFS_ERROR):
+            return ({
+                ...state,
+                isLoading: false,
+                error: action.payload
+            })
+
+        case (ACTION_TYPES.FETCH_ADD_SMURFS):
+            const smurf = {
+                id: action.payload,
+                firstName: action.payload,
+                nickname: action.payload,
+                position: action.payload,
+                description: action.payload
+            }
+            return ({ ...state.smurfs, smurf })
+        default:
+            return state;
+    }
 }
 
 //**************DO NOT EDIT ANY CODE BEYOND THIS POINT**************//

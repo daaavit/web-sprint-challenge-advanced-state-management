@@ -39,7 +39,7 @@ In this project, you will build the reducer, actions and basic redux connects to
     description: 'Papa is the practical village leader and the father figure of 100 or so young Smurfs. He is easily identified by his red Smurf hat, pants, and a shortly-trimmed white beard and moustache.'
   }
 ];
-```
+```f
 
 ## Example Finished Project
 ![Example Finished Project](./project_example.gif)
